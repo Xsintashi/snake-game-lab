@@ -44,7 +44,3 @@ Gra reaguje na standardowe klawisze strzałek oraz klawisze WASD.
 Gra kończy się, gdy wąż:
 1.  Uderzy w jedną z **krawędzi** planszy.
 2.  Uderzy we **własny ogon**.
-
----
-
-## ⚙️ Struktura Plików
