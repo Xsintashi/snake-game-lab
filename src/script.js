@@ -11,6 +11,9 @@ const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
 const startButton = document.getElementById('startButton');
 
+const scoreAudio = new Audio('./src/audio/score.ogg');
+const deathAudio = new Audio('./src/audio/death.ogg');
+
 // Stan gry
 let snake;
 let food;
@@ -88,12 +91,14 @@ function update() {
     // 3. Sprawdzenie kolizji
     if (checkCollision(head)) {
         isGameOver = true;
+        deathAudio.play();
         return;
     }
 
     // 4. Sprawdzenie, czy wąż zjadł jedzenie
     if (head.x === food.x && head.y === food.y) {
         // Zjedzone jedzenie: nie usuwamy ogona, wąż rośnie
+        scoreAudio.play();
         score += 10;
         scoreElement.textContent = score;
         generateFood(); // Generowanie nowego jedzenia
